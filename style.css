@@ -1,5 +1,5 @@
 :root{
-    --body-color:rgb(255, 255, 255);
+    --body-color:#f9fafb;
     --normal-background:rgba(255, 255, 255, 0.5);
     --text-color:rgb(38, 40, 113);
     --text-hover-color:rgb(25, 201, 216);
@@ -26,6 +26,36 @@ body{
     z-index: 1000;
     align-items: center;
     align-content: center;
+}
+.main-header > i{
+  display: none;
+  margin-right: 10px;
+}
+.mobile-nav-links{
+  display: flex;
+  flex-direction: column;
+  z-index: 2000;
+  position: fixed;
+  top:0;
+  right:0;
+  height: 100%;
+  width:40%;
+  min-width: fit-content;
+  padding:20px;
+  background-color: var(--normal-background);
+  backdrop-filter: blur(5px);
+}
+.mobile-nav-links a{
+    padding: 30px 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+.mobile-nav-links > a:hover{
+    transform: translateY(-2px);
+    color: var(--text-hover-color);
 }
 .logo{
     font-size: 2rem;
@@ -127,8 +157,15 @@ body{
 .about-section {
   background-color: #f9fafb; /* light slate */
   padding: 64px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
   font-family: 'Segoe UI', sans-serif;
   color: #1f2937; /* slate-800 */
+}
+.about-section.visible{
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-section .container {
@@ -240,8 +277,14 @@ body{
   height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   color: #1f2937; /* slate-800 */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
 }
-
+.services.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
 .services h2 {
   font-size: 2rem;
   text-align: center;
@@ -302,8 +345,14 @@ body{
   color: #1f2937; /* slate-800 */
   text-align: center;
   height:100vh;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
 }
-
+.clients-section.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
 .clients-section h2 {
   font-size: 2rem;
   margin-bottom: 32px;
@@ -365,8 +414,14 @@ body{
   color: #1f2937; /* slate-800 */
   text-align: center;
   height: 100vh;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
 }
-
+#testimonials.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
 #testimonials h2 {
   font-size: 2rem;
   margin-bottom: 40px;
@@ -428,8 +483,14 @@ body{
 #contact {
   background: linear-gradient(#f9fafb, #cfdff8);
   padding: 4rem 1rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
 }
-
+#contact.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
 #contact-card {
   max-width: 1000px;
   margin: 0 auto;
@@ -532,6 +593,9 @@ body{
 }
 /* Responsive */
 @media (max-width: 1000px) {
+  .main-header > i{
+    display: block;
+  }
   #testimonials {
     padding: 48px 16px;
     height: auto;
